@@ -290,7 +290,12 @@ def _run_grid_search(
     refit : bool, str, or callable, optional, default=True
     error_score : "raise" or numeric, optional, default=np.nan
     backend : str, optional, parallelization backend, see ``utils.parallel``
-    backend_params : dict, optional, parameters passed to the backend
+    backend_params : dict, optional, parameters passed to the backend.
+        Common parameters (max 3) for typical backends:
+        - ``n_jobs`` (int): number of parallel workers (default: 1).
+        - ``prefer`` (str): backend preference, e.g., ``"processes"`` or ``"threads"`` for ``loky``.
+        - ``verbose`` (int): verbosity level for the parallel backend.
+        See the full reference in ``sktime.utils.parallel`` for all options.
     verbose : int, optional, default=0, if positive, prints the number of fits
 
     Returns
